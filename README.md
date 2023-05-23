@@ -1,3 +1,4 @@
+# NeurIPS23 
 
 Implementation for `Normed Spaces for Graph Embeddings`
 
@@ -13,18 +14,20 @@ Implementation for `Normed Spaces for Graph Embeddings`
 
 Below are the instructions about running experiments in the l1 and linf normed spaces.
 
-`python run_dis.py --model euclidean --metric l1 --dims 20 --learning_rate 0.01 --batch_size 2048 --epoch 3000 --graph grid`
+``python run_dis.py --model euclidean --metric l1 --dims 20 --learning_rate 0.01 --batch_size 2048 --epoch 3000 --graph grid``
 
-`python run_dis.py --model euclidean --metric linf --dims 20 --learning_rate 0.01 --batch_size 2048 --epoch 3000 --graph tree`
+``python run_dis.py --model euclidean --metric linf --dims 20 --learning_rate 0.01 --batch_size 2048 --epoch 3000 --graph tree``
 
-`python visual.py --model euclidean --metric linf --dims 20 --graph grid` (visualizing embedding distortion in the linf normed space)
+Below is the way to visualize embedding distortion in the linf normed space.
+
+``python visual.py --model euclidean --metric linf --dims 20 --graph grid`` 
     
-### Datasets 
+## Datasets 
 
-- `Grid`, `Tree`, `TreexTree`, `Tree o Grid`, `Grid o Tree`, `Fullerenes`
-- `Margulis`, `Paley`, `Chordal`
-- `USCA312`, `Biseasome`, `CSPHD`, `EuroRoad`, `Facebook`
-- `ML-100k`, `LastFM`, `MeetUp-NYC`
+- `Grid` `Tree`  `TreexTree` `Tree o Grid`  `Grid o Tree`  `Fullerenes`
+- `Margulis`  `Paley`  `Chordal`
+- `USCA312`  `Biseasome`  `CSPHD` `EuroRoad`  `Facebook`
+- `ML-100k` `LastFM`  `MeetUp-NYC`
 
 ## Requirements
 - Python == 3.8
@@ -36,6 +39,4 @@ Below are the instructions about running experiments in the l1 and linf normed s
 - networkx == 2.6.3
 
 ## TODO
-
 - [ ] Recommender Systems
-
