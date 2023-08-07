@@ -2,7 +2,7 @@ import abc
 import torch
 import torch.nn as nn
 import geoopt as gt
-from sympa.manifolds import Euclidean, EuclideanlMetricType, UpperHalf, BoundedDomain
+from sympa.manifolds import Euclidean, EuclideanlMetricType, UpperHalf, BoundedDomain, ProductManifold
 from geoopt.manifolds.siegel.vvd_metrics import SiegelMetricType
 
 class Embeddings(nn.Module, abc.ABC):
@@ -64,19 +64,18 @@ class VectorEmbeddings(Embeddings):
 def get_prod_hysph_manifold(dims):
     poincare = gt.PoincareBall()
     sphere = gt.Sphere()
-    return gt.ProductManifold((poincare, dims // 2), (sphere, dims // 2))
+    return ProductManifold((poincare, dims // 2), (sphere, dims // 2))
 
 def get_prod_hyhy_manifold(dims):
     poincare = gt.PoincareBall()
-    return gt.ProductManifold((poincare, dims // 2), (poincare, dims // 2))
+    return ProductManifold((poincare, dims // 2), (poincare, dims // 2))
 
 def get_prod_hyeu_manifold(dims, metric):
     poincare = gt.PoincareBall()
     metric = EuclideanlMetricType(metric)    
     euclidean = Euclidean(metric=metric)
     
-    print(metric, dims // 2)
-    return gt.ProductManifold((poincare, dims // 2), (euclidean, dims // 2))
+    return ProductManifold((poincare, dims // 2), (euclidean, dims // 2))
 
 class ManifoldBuilder:
 

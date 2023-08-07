@@ -45,3 +45,6 @@ class Euclidean(gt.Euclidean):
         
         return self.compute_metric(z1, z2) ** 2
     
+    def logmap0(self, x: torch.Tensor, *, dim=-1):
+        
+        return x
