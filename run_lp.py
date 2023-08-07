@@ -76,9 +76,6 @@ class Runner(object):
         
         print(f"Final Results: ROC: {roc * 100:.2f}, Precision: {ap * 100:.2f}")        
                 
-        with open(f'results/lp/model_{args.dims}_{args.model}_{args.metric}_{args.graph}_{args.grid_dim}_{args.learning_rate}_{args.batch_size}', 'a') as f:
-            f.write(f'Distortion: {roc * 100:.2f}, Precision: {ap * 100:.2f}')
-        
     def train_epoch(self, train_data, src_dst_ids, graph_dists):
  
         self.model.train()
