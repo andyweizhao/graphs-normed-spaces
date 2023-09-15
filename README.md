@@ -20,9 +20,9 @@ Below are the instructions about running experiments in the l1 and linf normed s
 
 ``python run_dis.py --model prod-eueu --metric l1,linf --dims 20 --learning_rate 0.01 --batch_size 2048 --epoch 3000 --graph tree``
 
-''python run_lp_gnn.py --dims 64 --graph cora --model euclidean --metric l1 --gnn gcn --learning_rate 0.01 --batch_size -1 --epoch 1000``
+``python run_lp_gnn.py --dims 64 --graph cora --model euclidean --metric l1 --gnn gcn --learning_rate 0.01 --batch_size -1 --epoch 1000``
 
-''python run_lp_gnn.py --dims 64 --graph cora --model prod-eueu --metric l1,linf --gnn gcn --learning_rate 0.01 --batch_size -1 --epoch 1000``
+``python run_lp_gnn.py --dims 64 --graph cora --model prod-eueu --metric l1,linf --gnn gcn --learning_rate 0.01 --batch_size -1 --epoch 1000``
 
 Below is the way to visualize embedding distortion in the linf normed space.
 
