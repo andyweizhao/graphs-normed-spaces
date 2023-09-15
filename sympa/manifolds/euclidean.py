@@ -36,7 +36,8 @@ class Euclidean(gt.Euclidean):
             
         else:
             raise ValueError(f"Unrecognized metric: {metric}")
-
+        
+        
     def dist(self, z1: torch.Tensor, z2: torch.Tensor):
         
         return self.compute_metric(z1, z2)
@@ -48,3 +49,9 @@ class Euclidean(gt.Euclidean):
     def logmap0(self, x: torch.Tensor, *, dim=-1):
         
         return x
+    
+    def normalize(self, p):
+        dim = p.size(-1)
+        p.view(-1, dim).renorm_(p=2, dim=0, maxnorm=1.)
+        
+        return p
