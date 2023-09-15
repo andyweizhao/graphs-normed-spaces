@@ -33,7 +33,7 @@ class Embeddings(nn.Module, abc.ABC):
     def get(cls, model_name: str):
         if model_name in {"upper", "bounded", "dual", "spd"}:
             return MatrixEmbeddings
-        if model_name in {"euclidean", "poincare", "lorentz", "sphere", "prod-hysph", "prod-hyhy", "prod-hyeu",
+        if model_name in {"euclidean", "poincare", "lorentz", "sphere", "prod-hysph", "prod-hyhy", "prod-hyeu", "prod-eueu",
                           "prod-sphsph"}:
             return VectorEmbeddings
         raise ValueError(f"Unrecognized embedding model: {model_name}")
@@ -77,6 +77,14 @@ def get_prod_hyeu_manifold(dims, metric):
     
     return ProductManifold((poincare, dims // 2), (euclidean, dims // 2))
 
+def get_prod_eueu_manifold(dims, metric):
+
+    metrics = metric.split(',')
+    euclidean1 = Euclidean(metric=EuclideanlMetricType(metrics[0]))
+    euclidean2 = Euclidean(metric=EuclideanlMetricType(metrics[1]))
+
+    return ProductManifold((euclidean1, dims // 2), (euclidean2, dims // 2))
+
 class ManifoldBuilder:
 
     manifolds = {
@@ -93,6 +101,7 @@ class ManifoldBuilder:
         "upper": lambda dims, metric: UpperHalf(metric=metric),
         "bounded": lambda dims, metric: BoundedDomain(metric=metric),
         "prod-hyeu": lambda dims, metric: get_prod_hyeu_manifold(dims=dims, metric=metric),
+        "prod-eueu": lambda dims, metric: get_prod_eueu_manifold(dims=dims, metric=metric),
     }
 
     @classmethod

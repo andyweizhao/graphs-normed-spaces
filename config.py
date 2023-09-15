@@ -9,6 +9,8 @@ def load_arguments():
     parser.add_argument("--metric", default='f1', type=str)
 
     parser.add_argument("--batch_size", default=-1, type=int) 
+    
+    parser.add_argument("--gnn", default='gcn', type=str) 
     parser.add_argument("--patience", default=200, type=int) 
     parser.add_argument("--learning_rate", default=0.01, type=float) 
     parser.add_argument("--weight_decay", default=0, type=float)
