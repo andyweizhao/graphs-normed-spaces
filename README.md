@@ -1,4 +1,4 @@
-# ICLR24 
+# TMLR 
 
 Implementation for `Normed Spaces for Graph Embeddings`
 
