@@ -1,5 +1,3 @@
-# TMLR 
-
 Implementation for `Normed Spaces for Graph Embeddings`
 
 ## Available Spaces
